@@ -16,3 +16,29 @@ function _if(bool, func1 = () => 'True', func2 = () => 'false') {
       return func2()
     }
 }
+
+
+
+
+import React from "react"
+
+function Toggler(props){
+    const [on, setOn] = React.useState(props.defaultOnValue)
+    
+    console.log(props)
+    
+    toggle = () => {
+        setOn(prevState => prevState = !prevState)
+    }
+
+    return (
+        <div>
+            {props.children({
+                on: on, 
+                toggle: toggle
+            })}
+        </div>
+    )
+}
+
+export default Toggler
